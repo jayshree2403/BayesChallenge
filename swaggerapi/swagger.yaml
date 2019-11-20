@@ -1,0 +1,38 @@
+swagger: "2.0"
+info:
+  title: Bayes API
+  description: API description.
+  version: 1.0.0
+host: api.example.com
+basePath: /api
+schemes:
+  - https
+paths:
+  /abilities{ability_id}:
+    get:
+      summary: Returns ability fro ability id.
+      parameters:
+        - in: path
+          name: ability_id
+          required: true
+          type: long
+          minimum: 1
+          description: unique identifier for ability
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: long
+              name:
+                type: string 
+              description:
+                type: string
+              is_ultimate:
+                type: boolean
+        404:
+          description: Ability with the specified ID was not found.  
